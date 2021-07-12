@@ -15,8 +15,9 @@ router.get("/:id", UC.fetchOne);
 router.post("/create", UC.addOne);
 
 // DELETE ROUTES
-router.delete("/remove/:id", UC.deleteOne);
+router.delete("/remove/:userId", UC.deleteOne);
 
 // UPDATE ROUTES
+router.put("/edit/:userId", UC.updateOne);
 
 module.exports = router;

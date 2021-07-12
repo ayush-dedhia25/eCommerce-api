@@ -31,8 +31,9 @@ class UserController {
 	// Adding a new `User` in the database
 	// With `req.body` Object
 	async addOne(req, res) {
+		console.log(req.body);
 		try {
-			const user = await new User(req.body);
+			const user = new User(req.body);
 			await user.save();
 			return res.status(200).json(user);
 		}
@@ -47,10 +48,28 @@ class UserController {
 	
 	// Deleting a single `User` from the database
 	async deleteOne(req, res) {
+		const id = req.params.userId;
+		
 		try {
-			const id = req.params.id;
 			const user = await User.deleteOne({ _id: id });
-			return res.json(user);
+			return res.status(204).json(user);
+		}
+		catch (e) {
+			return res.status(500).json(e);
+		}
+	}
+	
+	// Updating a single `User` from the database
+	async updateOne(req, res) {
+		const id = req.params.userId;
+		
+		try {
+			const user = await User.findOneAndUpdate(
+				{ _id: id },  // Condition
+				req.body,	  // Changes
+				{ new: true } // Return updated user
+			);
+			return res.status(200).json(user);
 		}
 		catch (e) {
 			return res.status(500).json(e);

@@ -35,6 +35,10 @@ const UserSchema = new mongoose.Schema({
 	},
 	phoneNo: {
 		type: Number,
+		validate: {
+			validator: (phone) => validator.isMobilePhone(phone.toString(), ["en-IN"]),
+			message: props => `${props.value} is invalid phone number!`
+		},
 		required: [true, "Please provide your phone number!"]
 	},
 	cart: {
@@ -49,6 +53,7 @@ UserSchema.pre("save", function(next) {
 	bcrypt.genSalt(10, (err, salt) => {
 		bcrypt.hash(this.password, salt, (err, hash) => {
 			this.password = hash;
+			this.dob = new Date(this.dob);
 			next();
 		});
 	});

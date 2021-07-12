@@ -11,19 +11,11 @@ const { User } = require("./database/models/User");
 const userRoutes = require("./routes/userRoutes");
 const productRoutes = require("./routes/productRoutes");
 
-/*
-* Chalk Settings & Utilities
-* @Blue for warning message
-* @Cyan for normal logging message
-* @Red for error message
-*/
-const warning = chalk.blue;
-const log = chalk.cyan;
-const error = chalk.red;
-
 
 /*
 * This is the main `App` of this project!
+* @app is the instance of Express framework
+* It is also the entry point of the API
 */
 const app = express();
 
@@ -46,19 +38,17 @@ app.use(bodyParser.urlencoded({ extended: false }));
 /*
 * All Routes are described here...
 */
-// User Routes...
-app.use("/api/user", userRoutes);
-// Product Routes...
-app.use("/api/product", productRoutes);
+app.use("/api/user", userRoutes);		 // User Routes
+app.use("/api/product", productRoutes); // Product Routes
 
 
 /*
 * Listening to the port to start the server
-* @port 5000
+* @port `PORT`
 * @host Localhost
 * @url http://localhost:5000/
 */
 app.listen(PORT, () => {
-	console.log(log(`Server up and running on port ${PORT}`));
-	connect();
+	console.log(chalk.cyan(`Server up and running on port ${PORT}`));
+	connect(); // Database connection
 });
