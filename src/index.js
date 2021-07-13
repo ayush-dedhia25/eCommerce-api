@@ -10,6 +10,7 @@ const { User } = require("./database/models/User");
 
 const userRoutes = require("./routes/userRoutes");
 const productRoutes = require("./routes/productRoutes");
+const authRoutes = require("./routes/authRoutes");
 
 
 /*
@@ -40,6 +41,7 @@ app.use(bodyParser.urlencoded({ extended: false }));
 */
 app.use("/api/user", userRoutes);		 // User Routes
 app.use("/api/product", productRoutes); // Product Routes
+app.use("/api/auth", authRoutes);		 // Authentication Routes
 
 
 /*

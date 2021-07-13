@@ -1,5 +1,6 @@
 const express = require("express");
 const UserController = require("../controllers/userController");
+const verifyJWT = require("../middlewares/verifyJWT");
 
 // Router
 const router = express.Router();
@@ -8,16 +9,16 @@ const router = express.Router();
 const UC = new UserController();
 
 // GET ROUTES
-router.get("/", UC.fetchAll);
-router.get("/:id", UC.fetchOne);
+router.get("/", verifyJWT, UC.fetchAll);
+router.get("/:id", verifyJWT, UC.fetchOne);
 
 // POST ROUTES
-router.post("/create", UC.addOne);
+router.post("/create", verifyJWT, UC.addOne);
 
 // DELETE ROUTES
-router.delete("/remove/:userId", UC.deleteOne);
+router.delete("/remove/:userId", verifyJWT, UC.deleteOne);
 
 // UPDATE ROUTES
-router.put("/edit/:userId", UC.updateOne);
+router.put("/edit/:userId", verifyJWT, UC.updateOne);
 
 module.exports = router;
