@@ -41,12 +41,7 @@ const UserSchema = new mongoose.Schema({
 		},
 		required: [true, "Please provide your phone number!"]
 	},
-	cart: {
-		items: {
-			type: [ProductSchema],
-			default: []
-		}
-	}
+	cart: [ProductSchema]
 });
 
 UserSchema.pre("save", function(next) {

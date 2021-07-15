@@ -14,13 +14,13 @@ class UserController {
 		}
 	}
 	
-	// Fetching a single `User` from the database
+	// Fetching a `User` from the database
 	// Based on `id` field
 	async fetchOne(req, res) {
 		const userID = req.params.userId;
 		
 		try {
-			const user = await User.findOne({ _id: userID });
+			const user = await User.findById(userID);
 			return res.status(200).json(user);
 		}
 		catch (e) {
@@ -46,26 +46,29 @@ class UserController {
 		}
 	}
 	
-	// Deleting a single `User` from the database
+	// Deleting a `User` from the database
 	async deleteOne(req, res) {
 		const id = req.params.userId;
 		
 		try {
-			const user = await User.deleteOne({ _id: id });
-			return res.status(204).json(user);
+			const user = await User.findByIdAndDelete(id);
+			return res.status(204).json({
+				success: true,
+				message: "User Deleted!"
+			});
 		}
 		catch (e) {
 			return res.status(500).json(e);
 		}
 	}
 	
-	// Updating a single `User` from the database
+	// Updating a `User` from the database
 	async updateOne(req, res) {
 		const id = req.params.userId;
 		
 		try {
-			const user = await User.findOneAndUpdate(
-				{ _id: id },  // Condition
+			const user = await User.findByIdAndUpdate(
+				id,			  // Condition
 				req.body,	  // Changes
 				{ new: true } // Return updated user
 			);

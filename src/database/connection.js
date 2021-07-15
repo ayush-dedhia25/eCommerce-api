@@ -12,7 +12,8 @@ const URI = `${db}://${dbHost}:${dbPort}/${dbName}`;
 const connect = async () => {
 	const options = {
 		useUnifiedTopology: true,
-		useNewUrlParser: true
+		useNewUrlParser: true,
+		useFindAndModify: false
 	}
 	
 	try {

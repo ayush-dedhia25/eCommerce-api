@@ -3,14 +3,16 @@ const chalk = require("chalk");
 const bodyParser = require("body-parser");
 require("dotenv").config();
 
+// DB Connection
 const connect = require("./database/connection");
-
+// Models
 const { Product } = require("./database/models/Product");
 const { User } = require("./database/models/User");
-
+// Routes
 const userRoutes = require("./routes/userRoutes");
 const productRoutes = require("./routes/productRoutes");
 const authRoutes = require("./routes/authRoutes");
+const cartRoutes = require("./routes/cartRoutes");
 
 
 /*
@@ -42,6 +44,7 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use("/api/user", userRoutes);		 // User Routes
 app.use("/api/product", productRoutes); // Product Routes
 app.use("/api/auth", authRoutes);		 // Authentication Routes
+app.use("/api/cart", cartRoutes);		 // Cart Routes
 
 
 /*
@@ -51,6 +54,6 @@ app.use("/api/auth", authRoutes);		 // Authentication Routes
 * @url http://localhost:5000/
 */
 app.listen(PORT, () => {
-	console.log(chalk.cyan(`Server up and running on port ${PORT}`));
-	connect(); // Database connection
+   console.log(chalk.cyan(`Server up and running on port ${PORT}`));
+   connect(); // Database connection
 });

@@ -15,12 +15,10 @@ router.get("/find/:productId", PC.fetchOne);
 router.post("/create", PC.addOne);
 
 // DELETE ROUTES
-router.delete("/delete", PC.deleteOne);
+router.delete("/delete/:productId", PC.deleteOne);
 
 // UPDATE ROUTES
 router.put("/update", PC.updateOne);
-
-
 
 
 module.exports = router;

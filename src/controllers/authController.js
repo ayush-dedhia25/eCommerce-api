@@ -27,7 +27,14 @@ class AuthController {
 				});
 			}
 			else {
-				const token = jwt.sign({ email: user.email, password: user.password }, process.env.TOKEN_SECRET);
+				const token = jwt.sign(
+					{
+						email: user.email,
+						password: user.password
+					},
+					process.env.TOKEN_SECRET
+				);
+				
 				return res.status(200).json({
 					email: user.email,
 					password: user.password,

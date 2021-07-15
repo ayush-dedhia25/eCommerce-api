@@ -13,7 +13,7 @@ router.get("/", verifyJWT, UC.fetchAll);
 router.get("/:id", verifyJWT, UC.fetchOne);
 
 // POST ROUTES
-router.post("/create", verifyJWT, UC.addOne);
+router.post("/create", UC.addOne);
 
 // DELETE ROUTES
 router.delete("/remove/:userId", verifyJWT, UC.deleteOne);
