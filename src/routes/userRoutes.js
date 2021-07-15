@@ -2,23 +2,17 @@ const express = require("express");
 const UserController = require("../controllers/userController");
 const verifyJWT = require("../middlewares/verifyJWT");
 
-// Router
-const router = express.Router();
+const router = express.Router(); // Router
+const UC = new UserController(); // Controller Class
 
-// Controller Class
-const UC = new UserController();
-
-// GET ROUTES
+//---------------------------------------------------
+// ROUTES FOR USER MANAGEMENT
+//---------------------------------------------------
 router.get("/", verifyJWT, UC.fetchAll);
 router.get("/:id", verifyJWT, UC.fetchOne);
-
-// POST ROUTES
-router.post("/create", UC.addOne);
-
-// DELETE ROUTES
-router.delete("/remove/:userId", verifyJWT, UC.deleteOne);
-
-// UPDATE ROUTES
 router.put("/edit/:userId", verifyJWT, UC.updateOne);
+router.post("/create", UC.addOne);
+router.delete("/remove/:userId", verifyJWT, UC.deleteOne);
+//---------------------------------------------------
 
 module.exports = router;

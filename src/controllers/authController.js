@@ -3,8 +3,13 @@ const bcrypt = require("bcryptjs");
 const { User } = require("../database/models/User");
 require("dotenv").config();
 
+//---------------------------------------------------
+// Controller Class For Authentication
+//---------------------------------------------------
 class AuthController {
-	constructor() {}
+	constructor() {
+    this.name = "Authentication Controller";
+	}
 	
 	async login(req, res) {
 		const { email, password } = req.body;
@@ -15,7 +20,7 @@ class AuthController {
 				message: "Please provide authentication details!"
 			});
 		}
-		
+    
 		try {
 			const user = await User.findOne({ email });
 			const isMatched = await bcrypt.compare(password, user.password);
@@ -56,9 +61,13 @@ class AuthController {
 			
 		}
 		catch (e) {
-			
+			return res.status().json({
+				success: false,
+				message: "Couldn't logout! Please try again!"
+			});
 		}
 	}
 }
+//---------------------------------------------------
 
 module.exports = AuthController;

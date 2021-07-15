@@ -1,8 +1,12 @@
 const mongoose = require("mongoose");
 const AvailableTypes = require("../../Types");
 
+// Using Custom ENUMS
 const baseTypes = Object.entries(AvailableTypes).map(([key, value]) => value);
 
+//---------------------------------------------------
+// DATABASE SCHEMA | STRUCTURE OF AN USER
+//---------------------------------------------------
 const ProductSchema = new mongoose.Schema({
 	name: {
 		type: String,
@@ -42,13 +46,22 @@ const ProductSchema = new mongoose.Schema({
 		required: [true, "Value for `Product BaseType` property not received!"]
 	}
 });
+//---------------------------------------------------
 
+//---------------------------------------------------
+// MONGOOSE HOOK FUNCTION
+//---------------------------------------------------
 ProductSchema.pre("save", function(next) {
 	this.mfgDate = new Date(this.mfgDate);
 	this.expDate = new Date(this.expDate);
 	next();
 });
+//---------------------------------------------------
 
+//---------------------------------------------------
+// DATABASE SCHEMA MODEL | TABLE
+//---------------------------------------------------
 const Product = mongoose.model("Product", ProductSchema);
+//---------------------------------------------------
 
 module.exports = { ProductSchema, Product };

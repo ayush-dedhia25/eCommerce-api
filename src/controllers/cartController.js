@@ -2,6 +2,9 @@ const { Product } = require("../database/models/Product");
 const { User } = require("../database/models/User");
 const AvailableTypes = require("../Types");
 
+//---------------------------------------------------
+// Controller Class For Cart Functionality
+//---------------------------------------------------
 class CartController {
 	constructor() {
 		this.controllerName = "Cart Controller";
@@ -62,5 +65,6 @@ class CartController {
 		}
 	}
 }
+//---------------------------------------------------
 
 module.exports = CartController;

@@ -3,8 +3,12 @@ const bcrypt = require("bcryptjs");
 const validator = require("validator");
 const validateBirthDate = require("is-valid-birthdate");
 
+// Using Product's Schema To Reference Product
 const { ProductSchema } = require("./Product");
 
+//---------------------------------------------------
+// DATABASE SCHEMA | STRUCTURE OF A PRODUCT
+//---------------------------------------------------
 const UserSchema = new mongoose.Schema({
 	name: {
 		type: String,
@@ -43,7 +47,11 @@ const UserSchema = new mongoose.Schema({
 	},
 	cart: [ProductSchema]
 });
+//---------------------------------------------------
 
+//---------------------------------------------------
+// MONGOOSE HOOKS FUNCTION
+//---------------------------------------------------
 UserSchema.pre("save", function(next) {
 	if (this.isModified("password")) {
 		bcrypt.genSalt(10, (err, salt) => {
@@ -55,7 +63,12 @@ UserSchema.pre("save", function(next) {
 		});
 	}
 });
+//---------------------------------------------------
 
+//---------------------------------------------------
+// DATABASE SCHEMA MODEL | TABLE
+//---------------------------------------------------
 const User = mongoose.model("User", UserSchema);
+//---------------------------------------------------
 
 module.exports = { User };

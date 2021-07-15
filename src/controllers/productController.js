@@ -1,7 +1,12 @@
 const { Product } = require("../database/models/Product");
 
+//---------------------------------------------------
+// Controller Class For Managing Products
+//---------------------------------------------------
 class ProductController {
-	constructor() {}
+	constructor() {
+		this.name = "Product Controller";
+	}
 	
 	// Fetching all the `Products` from the database
 	async fetchAll(req, res) {
@@ -81,5 +86,6 @@ class ProductController {
 		}
 	}
 }
+//---------------------------------------------------
 
 module.exports = ProductController;

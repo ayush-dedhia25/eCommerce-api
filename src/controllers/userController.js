@@ -1,7 +1,12 @@
 const { User } = require("../database/models/User");
 
+//---------------------------------------------------
+// Controller Class For User Management
+//---------------------------------------------------
 class UserController {
-	constructor() {}
+	constructor() {
+		this.name = "User Controller";
+	}
 	
 	// Fetching all the `Users` from the database
 	async fetchAll(req, res) {
@@ -79,5 +84,6 @@ class UserController {
 		}
 	}
 }
+//---------------------------------------------------
 
 module.exports = UserController;
