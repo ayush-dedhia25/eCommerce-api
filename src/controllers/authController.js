@@ -5,7 +5,7 @@ require("dotenv").config();
 
 class AuthController {
 	constructor() {}
-	
+
 	async login(req, res) {
 		const { email, password } = req.body;
 		
@@ -15,18 +15,19 @@ class AuthController {
 				message: "Please provide authentication details!"
 			});
 		}
-		
+
 		try {
-			const user = await User.findOne({ email });
+			const user = await User.findOne({
+				email
+			});
 			const isMatched = await bcrypt.compare(password, user.password);
-			
+
 			if (!isMatched) {
 				return res.status(404).json({
 					success: false,
 					message: "Invalid username or password!"
 				});
-			}
-			else {
+			} else {
 				const token = jwt.sign(
 					{
 						email: user.email,
@@ -34,7 +35,7 @@ class AuthController {
 					},
 					process.env.TOKEN_SECRET
 				);
-				
+
 				return res.status(200).json({
 					email: user.email,
 					password: user.password,
@@ -50,14 +51,10 @@ class AuthController {
 			});
 		}
 	}
-	
+
 	async logout(req, res) {
-		try {
-			
-		}
-		catch (e) {
-			
-		}
+		try {}
+		catch (e) {}
 	}
 }
 
