@@ -17,9 +17,7 @@ class AuthController {
 		}
 
 		try {
-			const user = await User.findOne({
-				email
-			});
+			const user = await User.findOne({ email });
 			const isMatched = await bcrypt.compare(password, user.password);
 
 			if (!isMatched) {
