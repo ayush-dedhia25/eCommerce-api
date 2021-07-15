@@ -20,11 +20,11 @@ class AuthController {
 				message: "Please provide authentication details!"
 			});
 		}
-    
+		
 		try {
 			const user = await User.findOne({ email });
 			const isMatched = await bcrypt.compare(password, user.password);
-			
+
 			if (!isMatched) {
 				return res.status(404).json({
 					success: false,
@@ -39,7 +39,7 @@ class AuthController {
 					},
 					process.env.TOKEN_SECRET
 				);
-				
+
 				return res.status(200).json({
 					email: user.email,
 					password: user.password,
@@ -55,7 +55,7 @@ class AuthController {
 			});
 		}
 	}
-	
+
 	async logout(req, res) {
 		try {
 			
