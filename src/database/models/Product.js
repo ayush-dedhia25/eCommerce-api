@@ -49,7 +49,7 @@ const ProductSchema = new mongoose.Schema({
 //---------------------------------------------------
 
 //---------------------------------------------------
-// MONGOOSE HOOK FUNCTION
+// MONGOOSE PRE-SAVE HOOK FUNCTION
 //---------------------------------------------------
 ProductSchema.pre("save", function(next) {
    this.mfgDate = new Date(this.mfgDate);

@@ -4,7 +4,7 @@ const { User } = require("../database/models/User");
 require("dotenv").config();
 
 //---------------------------------------------------
-// Controller Class For Authentication
+// Business Logic For Authentication
 //---------------------------------------------------
 class AuthController {
    constructor() {

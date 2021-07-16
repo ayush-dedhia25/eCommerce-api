@@ -1,5 +1,5 @@
 //---------------------------------------------------
-// DEFINE CUSTOM ENUMS HERE
+// DEFINING CUSTOM ENUMS
 //---------------------------------------------------
 const AvailableTypes = {
    FLOUR: "FLOUR",

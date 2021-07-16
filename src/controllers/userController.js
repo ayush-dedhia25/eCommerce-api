@@ -1,7 +1,7 @@
 const { User } = require("../database/models/User");
 
 //---------------------------------------------------
-// Controller Class For User Management
+// Business Logic For User Management
 //---------------------------------------------------
 class UserController {
    constructor() {

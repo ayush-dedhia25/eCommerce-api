@@ -50,7 +50,7 @@ const UserSchema = new mongoose.Schema({
 //---------------------------------------------------
 
 //---------------------------------------------------
-// MONGOOSE HOOKS FUNCTION
+// MONGOOSE PRE-SAVE HOOK FUNCTION
 //---------------------------------------------------
 UserSchema.pre("save", function(next) {
    if (this.isModified("password")) {

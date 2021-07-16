@@ -3,7 +3,7 @@ const { User } = require("../database/models/User");
 const AvailableTypes = require("../Types");
 
 //---------------------------------------------------
-// Controller Class For Cart Functionality
+// Business Logic For Cart Functionality
 //---------------------------------------------------
 class CartController {
    constructor() {

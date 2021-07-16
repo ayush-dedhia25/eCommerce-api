@@ -10,7 +10,7 @@ const dbPort = process.env.DB_PORT;
 const URI = `${db}://${dbHost}:${dbPort}/${dbName}`;
 
 //--------------------------------------------------
-// Connection Method To Connect With Database
+// Connection Function To Connect With Database
 //--------------------------------------------------
 async function connect() {
    const options = {

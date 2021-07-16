@@ -1,7 +1,7 @@
 const { Product } = require("../database/models/Product");
 
 //---------------------------------------------------
-// Controller Class For Managing Products
+// Business Logic For Managing Products
 //---------------------------------------------------
 class ProductController {
    constructor() {
