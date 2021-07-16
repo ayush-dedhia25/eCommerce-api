@@ -13,23 +13,23 @@ const URI = `${db}://${dbHost}:${dbPort}/${dbName}`;
 // Connection Method To Connect With Database
 //--------------------------------------------------
 async function connect() {
-  const options = {
-    useUnifiedTopology: true,
-    useNewUrlParser: true,
-    useFindAndModify: false
-  };
+   const options = {
+      useUnifiedTopology: true,
+      useNewUrlParser: true,
+      useFindAndModify: false
+   };
 
-  try {
-    await mongoose.connect(URI, options);
-    console.log(chalk.magenta("(::::: Database Connection Active 🌟 :::::)"));
-  }
-  catch (error) {
-    console.log(chalk.red(
-      "(::::: 🚨 ERROR 🚨 :::::)\n" +
-      "1. Make sure that your connection to MongoDB is ON!\n" +
-      "2. Make sure you have configured database properly"
-    ));
-  }
+   try {
+      await mongoose.connect(URI, options);
+      console.log(chalk.magenta("(::::: Database Connection Active 🌟 :::::)"));
+   }
+   catch (error) {
+      console.log(chalk.red(
+         "(::::: 🚨 ERROR 🚨 :::::)\n" +
+         "1. Make sure that your connection to MongoDB is ON!\n" +
+         "2. Make sure you have configured database properly"
+      ));
+   }
 }
 //--------------------------------------------------
 

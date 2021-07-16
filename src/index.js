@@ -47,10 +47,10 @@ app.use(bodyParser.urlencoded({ extended: false }));
 //-------------------------------------------------
 // ALL ROUTES HERE
 //-------------------------------------------------
-app.use("/api/user", userRoutes);				// User Routes
+app.use("/api/user", userRoutes); // User Routes
 app.use("/api/product", productRoutes); // Product Routes
-app.use("/api/auth", authRoutes);				// Authentication Routes
-app.use("/api/cart", cartRoutes);				// Cart Routes
+app.use("/api/auth", authRoutes); // Authentication Routes
+app.use("/api/cart", cartRoutes); // Cart Routes
 //-------------------------------------------------
 
 //-------------------------------------------------
@@ -58,7 +58,7 @@ app.use("/api/cart", cartRoutes);				// Cart Routes
 // LISTEN'S TO 3000 IF IN PRODUCTION ELSE 5000 WHILE IN DEVELOPMENT
 //-------------------------------------------------
 app.listen(PORT, () => {
-	console.log(chalk.cyan(`Server up and running on port ${PORT}`));
-	connect(); // Database connection
+   console.log(chalk.cyan(`Server up and running on port ${PORT}`));
+   connect(); // Database connection
 });
 //-------------------------------------------------
