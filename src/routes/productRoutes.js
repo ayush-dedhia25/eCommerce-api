@@ -12,7 +12,6 @@ router.get("/find/:productId", PC.fetchOne);
 router.post("/create", PC.addOne);
 router.delete("/delete/:productId", PC.deleteOne);
 router.put("/update", PC.updateOne);
-
 //---------------------------------------------------
 
 module.exports = router;

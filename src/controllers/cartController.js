@@ -13,10 +13,14 @@ class CartController {
    async addProduct(req, res) {
       const prodname = req.params.name;
       const { email, password } = req.user;
-
+      
       try {
          const product = await Product.findOne({ name: prodname });
          // Adding Product to Cart
+         if (!product) {
+            return res.status(404).send("Product not found!");
+         }
+         
          const user = await User.findOneAndUpdate(
             { email, password },
             {
@@ -24,10 +28,11 @@ class CartController {
             },
             { new: true }
          );
-
+         
          return res.status(200).json({
             success: true,
-            message: "Product added to cart!"
+            message: "Product added to cart!",
+            user
          });
       }
       catch (e) {
