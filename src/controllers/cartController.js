@@ -2,9 +2,9 @@ const { Product } = require("../database/models/Product");
 const { User } = require("../database/models/User");
 const AvailableTypes = require("../Types");
 
-//---------------------------------------------------
+//------------------------------------------------------------------
 // Business Logic For Cart Functionality
-//---------------------------------------------------
+//------------------------------------------------------------------
 class CartController {
    constructor() {
       this.controllerName = "Cart Controller";
@@ -68,6 +68,6 @@ class CartController {
       }
    }
 }
-//---------------------------------------------------
+//------------------------------------------------------------------
 
 module.exports = CartController;

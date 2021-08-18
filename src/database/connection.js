@@ -9,14 +9,15 @@ const dbPort = process.env.DB_PORT;
 
 const URI = `${db}://${dbHost}:${dbPort}/${dbName}`;
 
-//--------------------------------------------------
+//------------------------------------------------------------------------------
 // Connection Function To Connect With Database
-//--------------------------------------------------
+//------------------------------------------------------------------------------
 async function connect() {
    const options = {
       useUnifiedTopology: true,
       useNewUrlParser: true,
-      useFindAndModify: false
+      useFindAndModify: false,
+      useCreateIndex: true
    };
 
    try {
@@ -31,6 +32,6 @@ async function connect() {
       ));
    }
 }
-//--------------------------------------------------
+//------------------------------------------------------------------------------
 
 module.exports = connect;

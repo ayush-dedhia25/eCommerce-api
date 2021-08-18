@@ -3,9 +3,9 @@ const bcrypt = require("bcryptjs");
 const { User } = require("../database/models/User");
 require("dotenv").config();
 
-//---------------------------------------------------
+//-----------------------------------------------------------------------
 // Business Logic For Authentication
-//---------------------------------------------------
+//-----------------------------------------------------------------------
 class AuthController {
    constructor() {
       this.name = "Authentication Controller";
@@ -65,6 +65,6 @@ class AuthController {
       }
    }
 }
-//---------------------------------------------------
+//-----------------------------------------------------------------------
 
 module.exports = AuthController;
