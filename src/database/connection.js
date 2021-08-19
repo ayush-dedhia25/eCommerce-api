@@ -1,6 +1,6 @@
-const mongoose = require("mongoose");
-const chalk = require("chalk");
-require("dotenv").config();
+const mongoose = require('mongoose');
+const chalk = require('chalk');
+require('dotenv').config();
 
 const db = process.env.DB;
 const dbName = process.env.DB_NAME;
@@ -22,13 +22,13 @@ async function connect() {
 
    try {
       await mongoose.connect(URI, options);
-      console.log(chalk.magenta("(::::: Database Connection Active 🌟 :::::)"));
+      console.log(chalk.magenta('(::::: Database Connection Active 🌟 :::::)'));
    }
    catch (error) {
       console.log(chalk.red(
-         "(::::: 🚨 ERROR 🚨 :::::)\n" +
-         "1. Make sure that your connection to MongoDB is ON!\n" +
-         "2. Make sure you have configured database properly"
+         '(::::: 🚨 ERROR 🚨 :::::)\n' +
+         '1. Make sure that your connection to MongoDB is ON!\n' +
+         '2. Make sure you have configured database properly'
       ));
    }
 }

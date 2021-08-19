@@ -1,11 +1,11 @@
-const { Product } = require("../database/models/Product");
+const { Product } = require('../database/models/Product');
 
 //--------------------------------------------------------------------------------
 // Business Logic For Managing Products
 //--------------------------------------------------------------------------------
 class ProductController {
    constructor() {
-      this.name = "Product Controller";
+      this.name = 'Product Controller';
    }
 
    // Fetching all the `Products` from the database

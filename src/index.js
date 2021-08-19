@@ -1,28 +1,28 @@
-const express = require("express");
-const chalk = require("chalk");
-const bodyParser = require("body-parser");
-require("dotenv").config();
+const express = require('express');
+const chalk = require('chalk');
+const bodyParser = require('body-parser');
+const { Log, Config } = require('./config');
 
 //-------------------------------------------------------------------
 // DATABASE CONNECTION FILE
 //-------------------------------------------------------------------
-const connect = require("./database/connection");
+const connect = require('./database/connection');
 //-------------------------------------------------------------------
 
 //-------------------------------------------------------------------
 // DATABASE MODEL FILES
 //-------------------------------------------------------------------
-const { Product } = require("./database/models/Product");
-const { User } = require("./database/models/User");
+const { Product } = require('./database/models/Product');
+const { User } = require('./database/models/User');
 //-------------------------------------------------------------------
 
 //-------------------------------------------------------------------
 // ALL ROUTER FILES IMPORT
 //-------------------------------------------------------------------
-const userRoutes = require("./routes/userRoutes");
-const productRoutes = require("./routes/productRoutes");
-const authRoutes = require("./routes/authRoutes");
-const cartRoutes = require("./routes/cartRoutes");
+const userRoutes = require('./routes/userRoutes');
+const productRoutes = require('./routes/productRoutes');
+const authRoutes = require('./routes/authRoutes');
+const cartRoutes = require('./routes/cartRoutes');
 //-------------------------------------------------------------------
 
 //-------------------------------------------------------------------
@@ -47,10 +47,10 @@ app.use(bodyParser.urlencoded({ extended: false }));
 //-------------------------------------------------------------------
 // ALL ROUTES HERE
 //-------------------------------------------------------------------
-app.use("/api/user", userRoutes); // User Routes
-app.use("/api/product", productRoutes); // Product Routes
-app.use("/api/auth", authRoutes); // Authentication Routes
-app.use("/api/cart", cartRoutes); // Cart Routes
+app.use('/api/user', userRoutes); // User Routes
+app.use('/api/product', productRoutes); // Product Routes
+app.use('/api/auth', authRoutes); // Authentication Routes
+app.use('/api/cart', cartRoutes); // Cart Routes
 //-------------------------------------------------------------------
 
 //-------------------------------------------------------------------
@@ -59,6 +59,6 @@ app.use("/api/cart", cartRoutes); // Cart Routes
 //-------------------------------------------------------------------
 app.listen(PORT, () => {
    console.log(chalk.cyan(`Server up and running on port ${PORT}`));
-   connect(); // Database connection
+   // connect(); // Database connection
 });
 //-------------------------------------------------------------------

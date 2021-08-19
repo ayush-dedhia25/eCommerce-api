@@ -1,17 +1,17 @@
-const jwt = require("jsonwebtoken");
-require("dotenv").config();
+const jwt = require('jsonwebtoken');
+require('dotenv').config();
 
 //--------------------------------------------------------------
 // Middleware To Verify JWT Token OR Refresh Token
 //--------------------------------------------------------------
 function verifyJWT(req, res, next) {
    const authHeaders = req.headers.authorization;
-   const token = authHeaders && authHeaders.split(" ")[1];
+   const token = authHeaders && authHeaders.split(' ')[1];
    
    if (token == null) {
       return res.status(401).json({
          success: false,
-         message: "Authorization failed! Try again"
+         message: 'Authorization failed! Try again'
       });
    }
 
@@ -19,7 +19,7 @@ function verifyJWT(req, res, next) {
       if (err) {
          return res.status(401).json({
             success: false,
-            message: "Authorization expired or invalid!"
+            message: 'Authorization expired or invalid!'
          });
       }
       req.user = user;

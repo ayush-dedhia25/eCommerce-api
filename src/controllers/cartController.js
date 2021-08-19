@@ -1,13 +1,13 @@
-const { Product } = require("../database/models/Product");
-const { User } = require("../database/models/User");
-const AvailableTypes = require("../Types");
+const { Product } = require('../database/models/Product');
+const { User } = require('../database/models/User');
+const AvailableTypes = require('../Types');
 
 //------------------------------------------------------------------
 // Business Logic For Cart Functionality
 //------------------------------------------------------------------
 class CartController {
    constructor() {
-      this.controllerName = "Cart Controller";
+      this.controllerName = 'Cart Controller';
    }
 
    async addProduct(req, res) {
@@ -18,7 +18,7 @@ class CartController {
          const product = await Product.findOne({ name: prodname });
          // Adding Product to Cart
          if (!product) {
-            return res.status(404).send("Product not found!");
+            return res.status(404).send('Product not found!');
          }
          
          const user = await User.findOneAndUpdate(
@@ -31,7 +31,7 @@ class CartController {
          
          return res.status(200).json({
             success: true,
-            message: "Product added to cart!",
+            message: 'Product added to cart!',
             user
          });
       }
@@ -39,7 +39,7 @@ class CartController {
          console.log(e);
          return res.status(404).json({
             success: false,
-            message: "Product not found!"
+            message: 'Product not found!'
          });
       }
    }
@@ -63,7 +63,7 @@ class CartController {
          console.log(e);
          return res.status(404).json({
             success: false,
-            message: "Product not found!"
+            message: 'Product not found!'
          });
       }
    }

@@ -1,11 +1,11 @@
-const { User } = require("../database/models/User");
+const { User } = require('../database/models/User');
 
 //------------------------------------------------------
 // Business Logic For User Management
 //------------------------------------------------------
 class UserController {
    constructor() {
-      this.name = "User Controller";
+      this.name = 'User Controller';
    }
 
    // Fetching all the `Users` from the database
@@ -56,7 +56,7 @@ class UserController {
          const user = await User.findByIdAndDelete(id);
          return res.status(204).json({
             success: true,
-            message: "User Deleted!"
+            message: 'User Deleted!'
          });
       }
       catch (e) {

@@ -1,14 +1,14 @@
-const jwt = require("jsonwebtoken");
-const bcrypt = require("bcryptjs");
-const { User } = require("../database/models/User");
-require("dotenv").config();
+const jwt = require('jsonwebtoken');
+const bcrypt = require('bcryptjs');
+const { User } = require('../database/models/User');
+require('dotenv').config();
 
 //-----------------------------------------------------------------------
 // Business Logic For Authentication
 //-----------------------------------------------------------------------
 class AuthController {
    constructor() {
-      this.name = "Authentication Controller";
+      this.name = 'Authentication Controller';
    }
 
    async login(req, res) {
@@ -16,7 +16,7 @@ class AuthController {
       if (!email || !password) {
          return res.status(404).json({
             success: false,
-            message: "Please provide authentication details!"
+            message: 'Please provide authentication details!'
          });
       }
       
@@ -27,7 +27,7 @@ class AuthController {
          if (!isMatched) {
             return res.status(404).json({
                success: false,
-               message: "Invalid username or password!"
+               message: 'Invalid username or password!'
             });
          }
          else {
@@ -50,7 +50,7 @@ class AuthController {
          console.log(e);
          return res.status(404).json({
             ok: false,
-            message: "User not found!"
+            message: 'User not found!'
          });
       }
    }
@@ -60,7 +60,7 @@ class AuthController {
       catch (e) {
          return res.status().json({
             success: false,
-            message: "Couldn't logout! Please try again!"
+            message: 'Couldn\'t logout! Please try again!'
          });
       }
    }
