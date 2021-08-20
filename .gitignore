@@ -116,3 +116,7 @@ dist
 .yarn/build-state.yml
 .yarn/install-state.gz
 .pnp.*
+
+# Exclude testing files
+*.txt
+test.txt
