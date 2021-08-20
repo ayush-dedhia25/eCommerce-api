@@ -1,5 +1,6 @@
 const { Product } = require('../database/models/Product');
 const { User } = require('../database/models/User');
+const { Log } = require('../config');
 const AvailableTypes = require('../Types');
 
 //------------------------------------------------------------------
@@ -36,7 +37,7 @@ class CartController {
          });
       }
       catch (e) {
-         console.log(e);
+         Log.data(e);
          return res.status(404).json({
             success: false,
             message: 'Product not found!'
@@ -60,7 +61,7 @@ class CartController {
          return res.status(200).json(userCart);
       }
       catch (e) {
-         console.log(e);
+         Log.data(e);
          return res.status(404).json({
             success: false,
             message: 'Product not found!'

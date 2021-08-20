@@ -47,7 +47,7 @@ class AuthController {
          }
       }
       catch (e) {
-         console.log(e);
+         Log.data(e);
          return res.status(404).json({
             ok: false,
             message: 'User not found!'
