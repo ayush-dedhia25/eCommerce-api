@@ -1,11 +1,11 @@
 const mongoose = require('mongoose');
 const chalk = require('chalk');
-require('dotenv').config();
+const { Config } = require('../config');
 
-const db = process.env.DB;
-const dbName = process.env.DB_NAME;
-const dbHost = process.env.DB_HOST;
-const dbPort = process.env.DB_PORT;
+const db = Config.database.DATABASE;
+const dbName = Config.database.DBNAME;
+const dbHost = Config.database.HOST;
+const dbPort = Config.database.PORT;
 
 const URI = `${db}://${dbHost}:${dbPort}/${dbName}`;
 

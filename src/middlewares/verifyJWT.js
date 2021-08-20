@@ -1,5 +1,5 @@
 const jwt = require('jsonwebtoken');
-require('dotenv').config();
+const { Config } = require('../config');
 
 //--------------------------------------------------------------
 // Middleware To Verify JWT Token OR Refresh Token
@@ -15,7 +15,7 @@ function verifyJWT(req, res, next) {
       });
    }
 
-   jwt.verify(token, process.env.TOKEN_SECRET, (err, user) => {
+   jwt.verify(token, Config.jwt.SECRET, (err, user) => {
       if (err) {
          return res.status(401).json({
             success: false,

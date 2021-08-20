@@ -1,7 +1,8 @@
+const http = require('http');
 const express = require('express');
 const chalk = require('chalk');
 const bodyParser = require('body-parser');
-const { Log, Config } = require('./config');
+const { Log, Config, logServer } = require('./config');
 
 //-------------------------------------------------------------------
 // DATABASE CONNECTION FILE
@@ -34,7 +35,7 @@ const app = express();
 //-------------------------------------------------------------------
 // LOADING ENVIRONMENT CONFIGURATION DATA
 //-------------------------------------------------------------------
-const PORT = process.env.PORT || 5000;
+const PORT = Config.server.PORT;
 //-------------------------------------------------------------------
 
 //-------------------------------------------------------------------
@@ -57,8 +58,9 @@ app.use('/api/cart', cartRoutes); // Cart Routes
 // STARTING THE APP SERVER ON PORT 3000 | 5000
 // LISTEN'S TO 3000 IF IN PRODUCTION ELSE 5000 WHILE IN DEVELOPMENT
 //-------------------------------------------------------------------
-app.listen(PORT, () => {
-   console.log(chalk.cyan(`Server up and running on port ${PORT}`));
-   // connect(); // Database connection
+const server = http.createServer(app);
+server.listen(PORT, () => {
+   connect(); // Database connection
+   logServer(server);
 });
 //-------------------------------------------------------------------

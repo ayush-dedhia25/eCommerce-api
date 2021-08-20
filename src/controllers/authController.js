@@ -1,7 +1,7 @@
 const jwt = require('jsonwebtoken');
 const bcrypt = require('bcryptjs');
 const { User } = require('../database/models/User');
-require('dotenv').config();
+const { Config } = require("../config");
 
 //-----------------------------------------------------------------------
 // Business Logic For Authentication
@@ -36,13 +36,13 @@ class AuthController {
                   email: user.email,
                   password: user.password
                },
-               process.env.TOKEN_SECRET
+               Config.jwt.SECRET
             );
             
             return res.status(200).json({
+               token,
                email: user.email,
-               password: user.password,
-               token
+               password: user.password
             });
          }
       }
