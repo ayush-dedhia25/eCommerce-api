@@ -7,10 +7,10 @@ const { User } = require('../database/models/User');
 const getUsers = async (req, res) => {
    try {
       const users = await User.find();
-      return res.status(200).json(users);
+      res.status(200).json(users);
    }
    catch (e) {
-      return res.status(500).json(e);
+      res.status(500).json(e);
    }
 }
 
@@ -19,10 +19,10 @@ const getUser = async (req, res) => {
    const userID = req.params.id;
    try {
       const user = await User.findById(userID);
-      return res.status(200).json(user);
+      res.status(200).json(user);
    }
    catch (e) {
-      return res.status(500).json(e);
+      res.status(500).json(e);
    }
 }
 
@@ -31,10 +31,10 @@ const createUser = async (req, res) => {
    try {
       const user = new User(req.body);
       await user.save();
-      return res.status(200).json(user);
+      res.status(200).json(user);
    }
    catch (e) {
-      return res.status(500).json({
+      res.status(500).json({
          _message: e._message,
          name: e.name,
          message: e.message
@@ -47,13 +47,13 @@ const deleteUser = async (req, res) => {
    const id = req.params.id;
    try {
       const user = await User.findByIdAndDelete(id);
-      return res.status(204).json({
+      res.status(204).json({
          success: true,
          message: 'User Deleted!'
       });
    }
    catch (e) {
-      return res.status(500).json(e);
+      res.status(500).json(e);
    }
 }
 
@@ -66,10 +66,10 @@ const updateUser = async (req, res) => {
          req.body,     // Changes
          { new: true } // Return updated user
       );
-      return res.status(200).json(user);
+      res.status(200).json(user);
    }
    catch (e) {
-      return res.status(500).json(e);
+      res.status(500).json(e);
    }
 }
 //---------------------------------------------------

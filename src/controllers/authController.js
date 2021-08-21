@@ -12,11 +12,10 @@ const login = async (req, res) => {
    const { email, password } = req.body;
    
    if (!email || !password) {
-      res.status(404).json({
+      return res.status(404).json({
          success : false,
          message : 'Please provide authentication details!'
       });
-      return;
    }
    
    try {
@@ -40,22 +39,20 @@ const login = async (req, res) => {
          
          const refreshToken = await signRefreshToken(user._id.toString());
          
-         res.status(200).json({
+         return res.status(200).json({
             token,
             refreshToken,
             email    : user.email,
             password : user.password
          });
-         return;
       }
    }
    catch (e) {
       Log.error('AuthService', e);
-      res.status(404).json({
+      return res.status(404).json({
          ok      : false,
          message : 'User not found!'
       });
-      return;
    }
 }
 //--------------------------------------------------------------------

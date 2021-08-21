@@ -26,7 +26,7 @@ const addProductToCart = async (req, res) => {
          { new: true }
       );
       
-      return res.status(200).json({
+      res.status(200).json({
          success: true,
          message: 'Product added to cart!',
          user
@@ -34,7 +34,7 @@ const addProductToCart = async (req, res) => {
    }
    catch (e) {
       Log.data(e);
-      return res.status(404).json({
+      res.status(404).json({
          success: false,
          message: 'Product not found!'
       });
@@ -55,11 +55,11 @@ const removeProductFromCart = async (req, res) => {
          },
          { new: true }
       );
-      return res.status(200).json(userCart);
+      res.status(200).json(userCart);
    }
    catch (e) {
       Log.data(e);
-      return res.status(404).json({
+      res.status(404).json({
          success: false,
          message: 'Product not found!'
       });

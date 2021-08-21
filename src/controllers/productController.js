@@ -7,10 +7,10 @@ const { Product } = require('../database/models/Product');
 const getProducts = async (req, res) => {
    try {
       const products = await Product.find();
-      return res.status(200).json(products);
+      res.status(200).json(products);
    }
    catch (e) {
-      return res.status(500).json(e);
+      res.status(500).json(e);
    }
 }
 
@@ -20,10 +20,10 @@ const getProduct = async (req, res) => {
    const productID = req.params.productId;
    try {
       const product = await Product.findOne({ _id: productID });
-      return res.status(200).json(product);
+      res.status(200).json(product);
    }
    catch (e) {
-      return res.status(500).json(e);
+      res.status(500).json(e);
    }
 }
 
@@ -32,10 +32,10 @@ const addProduct = async (req, res) => {
    try {
       const product = await new Product(req.body);
       await product.save();
-      return res.status(200).json(product);
+      res.status(200).json(product);
    }
    catch (e) {
-      return res.status(500).json({
+      res.status(500).json({
          _message : e._message,
          name     : e.name,
          message  : e.message
@@ -49,10 +49,10 @@ const deleteProduct = async (req, res) => {
    const productID = req.params.productId;
    try {
       const product = await Product.findByIdAndDelete(productID);
-      return res.status(200).json(product);
+      res.status(200).json(product);
    }
    catch (e) {
-      return res.status(500).json({
+      res.status(500).json({
          _message : e._message,
          name     : e.name,
          message  : e.message
@@ -66,13 +66,13 @@ const updateProduct = async (req, res) => {
    try {
       const product = await Product.findOneAndUpdate(
          { _id : productID }, // Condition
-         req.body,           // Changes
-         { new: true }       // Whether to return old record or updated record
+         req.body,            // Changes
+         { new: true }        // Whether to return old record or updated record
       );
-      return res.status(200).json(product);
+      res.status(200).json(product);
    }
    catch (e) {
-      return res.status(500).json({
+      res.status(500).json({
          _message : e._message,
          name     : e.name,
          message  : e.message
