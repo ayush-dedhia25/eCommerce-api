@@ -1,10 +1,10 @@
 const { User } = require('../database/models/User');
 
-//------------------------------------------------------
+//---------------------------------------------------
 // Business Logic For User Management
-//------------------------------------------------------
+//---------------------------------------------------
 // Fetch all users.
-module.exports.fetchAll = async (req, res) => {
+const getUsers = async (req, res) => {
    try {
       const users = await User.find();
       return res.status(200).json(users);
@@ -15,8 +15,8 @@ module.exports.fetchAll = async (req, res) => {
 }
 
 // Fetch a single user by its id.
-module.exports.fetchOne = async (req, res) => {
-   const userID = req.params.userId;
+const getUser = async (req, res) => {
+   const userID = req.params.id;
    try {
       const user = await User.findById(userID);
       return res.status(200).json(user);
@@ -27,7 +27,7 @@ module.exports.fetchOne = async (req, res) => {
 }
 
 // Create a new user.
-module.exports.addOne = async (req, res) => {
+const createUser = async (req, res) => {
    try {
       const user = new User(req.body);
       await user.save();
@@ -43,8 +43,8 @@ module.exports.addOne = async (req, res) => {
 }
 
 // Delete a user!
-module.exports.deleteOne = async (req, res) => {
-   const id = req.params.userId;
+const deleteUser = async (req, res) => {
+   const id = req.params.id;
    try {
       const user = await User.findByIdAndDelete(id);
       return res.status(204).json({
@@ -58,8 +58,8 @@ module.exports.deleteOne = async (req, res) => {
 }
 
 // Update a user.
-module.exports.updateOne = async (req, res) => {
-   const id = req.params.userId;
+const updateUser = async (req, res) => {
+   const id = req.params.id;
    try {
       const user = await User.findByIdAndUpdate(
          id,           // Condition
@@ -71,4 +71,13 @@ module.exports.updateOne = async (req, res) => {
    catch (e) {
       return res.status(500).json(e);
    }
+}
+//---------------------------------------------------
+
+module.exports = {
+   getUsers,
+   getUser,
+   createUser,
+   updateUser,
+   deleteUser
 }

@@ -5,11 +5,11 @@ const verifyJWT = require('../middlewares/verifyJWT');
 //---------------------------------------------------------------------
 // ROUTES FOR USER MANAGEMENT
 //---------------------------------------------------------------------
-router.get('/', verifyJWT, UserController.fetchAll);
-router.get('/:id', verifyJWT, UserController.fetchOne);
-router.put('/edit/:userId', verifyJWT, UserController.updateOne);
-router.post('/create', UserController.addOne);
-router.delete('/remove/:userId', verifyJWT, UserController.deleteOne);
+router.get('/', verifyJWT, UserController.getUsers);
+router.get('/:id', verifyJWT, UserController.getUser);
+router.put('/:id', verifyJWT, UserController.updateUser);
+router.post('/', UserController.createUser);
+router.delete('/:id', verifyJWT, UserController.deleteUser);
 //---------------------------------------------------------------------
 
 module.exports = router;

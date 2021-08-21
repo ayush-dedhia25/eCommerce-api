@@ -22,7 +22,7 @@ async function connect() {
 
    try {
       await mongoose.connect(URI, options);
-      Log.log('(::::: Database Connection Active 🌟 :::::)');
+      Log.log('DATABASE', 'Database Connection Active 🌟');
    }
    catch (error) {
       Log.error(

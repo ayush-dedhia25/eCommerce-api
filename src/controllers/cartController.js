@@ -6,8 +6,8 @@ const AvailableTypes = require('../Types');
 //--------------------------------------------------------------
 // Business Logic For Cart Functionality
 //--------------------------------------------------------------
-// Add to cart functionality.
-module.exports.addProductToCart = async (req, res) => {
+// Add item to cart functionality.
+const addProductToCart = async (req, res) => {
    const prodname = req.params.name;
    const { email, password } = req.user;
    
@@ -41,8 +41,8 @@ module.exports.addProductToCart = async (req, res) => {
    }
 }
 
-// Remove from cart functionality.
-module.exports.removeProductFromCart = async (req, res) => {
+// Remove item from cart functionality.
+const removeProductFromCart = async (req, res) => {
    const { email, password } = req.user;
    try {
       // Remove a product from the cart!
@@ -66,3 +66,8 @@ module.exports.removeProductFromCart = async (req, res) => {
    }
 }
 //--------------------------------------------------------------
+
+module.exports = {
+   addProductToCart,
+   removeProductFromCart
+}
