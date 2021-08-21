@@ -61,6 +61,6 @@ app.use('/api/cart', cartRoutes); // Cart Routes
 const server = http.createServer(app);
 server.listen(PORT, () => {
    connect(); // Database connection
-   logServer(server);
+   logServer();
 });
 //-------------------------------------------------------------------
