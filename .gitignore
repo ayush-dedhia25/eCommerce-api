@@ -118,5 +118,5 @@ dist
 .pnp.*
 
 # Exclude testing files
-*.txt
 test.txt
+*.txt

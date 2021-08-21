@@ -1,17 +1,14 @@
-const express = require('express');
+const router = require('express').Router();
 const ProductController = require('../controllers/productController');
-
-const router = express.Router();    // Router
-const PC = new ProductController(); // Controller Class
 
 //--------------------------------------------------------------------
 // ROUTES FOR PRODUCTS MANAGEMENT
 //--------------------------------------------------------------------
-router.get('/', PC.fetchAll);
-router.get('/find/:productId', PC.fetchOne);
-router.post('/create', PC.addOne);
-router.delete('/delete/:productId', PC.deleteOne);
-router.put('/update', PC.updateOne);
+router.get('/', ProductController.getProducts);
+router.get('/find/:productId', ProductController.getProduct);
+router.post('/create', ProductController.addOne);
+router.delete('/delete/:productId', ProductController.deleteProduct);
+router.put('/update', ProductController.updateProduct);
 //--------------------------------------------------------------------
 
 module.exports = router;
