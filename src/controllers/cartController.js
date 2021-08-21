@@ -50,7 +50,7 @@ module.exports.removeProductFromCart = async (req, res) => {
          { email, password },
          {
             $pull: {
-               cart: { _id: req.params.prodId }
+               cart: { _id: req.params.productId }
             }
          },
          { new: true }
