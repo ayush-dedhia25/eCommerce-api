@@ -8,7 +8,7 @@
       "dev": "nodemon ./src/index.js",
       "start:db": "mongod"
    },
-   "author": "Ayush Dedhia <ayushdedhia25@gmail.com>",
+   "author": "Ayush Dedhia <ayushdedhia25 at gmail.com>",
    "license": "ISC",
    "dependencies": {
       "bcryptjs": "^2.4.3",
@@ -17,9 +17,10 @@
       "dotenv": "^10.0.0",
       "express": "^4.17.1",
       "is-valid-birthdate": "^0.1.0",
+      "joi": "^17.4.2",
       "jsonwebtoken": "^8.5.1",
       "mongoose": "^5.13.2",
-      "terminal-kit": "^2.1.6",
+      "morgan": "^1.10.0",
       "validator": "^13.6.0"
    }
 }

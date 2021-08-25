@@ -53,12 +53,12 @@ class Logger {
 //------------------------------------------------------------------------------------
 
 async function logServer() {
-   console.log(chalk`        {bold.cyan +-------------------------------------------+}`);
-   console.log(chalk`        {bold.cyan |}           {bold EXPRESS SERVER STARTED}          {bold.cyan |}`);
-   console.log(chalk`        {bold.cyan |}       ******************************      {bold.cyan |}`);
-   console.log(chalk`        {bold.cyan |}   {bold.green Server:} {yellow.underline http://${Config.server.HOST}:${Config.server.PORT}} ......... {bold.cyan |}`);
-   console.log(chalk`        {bold.cyan |} {bold.green Database:} {yellow ${Config.database.DBNAME}} ..................... {bold.cyan |}`);
-   console.log(chalk`        {bold.cyan +-------------------------------------------+}`);
+   console.log(chalk`{bold.cyan +-------------------------------------------+}`);
+   console.log(chalk`{bold.cyan |}           {bold EXPRESS SERVER STARTED}          {bold.cyan |}`);
+   console.log(chalk`{bold.cyan |}       ******************************      {bold.cyan |}`);
+   console.log(chalk`{bold.cyan |}   {bold.green Server:} {yellow.underline http://${Config.server.HOST}:${Config.server.PORT}} ......... {bold.cyan |}`);
+   console.log(chalk`{bold.cyan |} {bold.green Database:} {yellow ${Config.database.DBNAME}} ..................... {bold.cyan |}`);
+   console.log(chalk`{bold.cyan +-------------------------------------------+}`);
 }
 
 module.exports = {
