@@ -10,18 +10,15 @@ const signRefreshToken = require('../helpers/JwtHelper');
 // User login functionality.
 const login = async (req, res) => {
    const { email, password } = req.body;
-   
    if (!email || !password) {
       return res.status(404).json({
          success : false,
          message : 'Please provide authentication details!'
       });
    }
-   
    try {
       const user = await User.findOne({ email });
       const isMatched = await bcrypt.compare(password, user.password);
-      
       if (!isMatched) {
          return res.status(404).json({
             success : false,
@@ -36,9 +33,7 @@ const login = async (req, res) => {
             },
             Config.jwt.SECRET
          );
-         
          const refreshToken = await signRefreshToken(user._id.toString());
-         
          return res.status(200).json({
             token,
             refreshToken,
@@ -54,9 +49,9 @@ const login = async (req, res) => {
          message : 'User not found!'
       });
    }
-}
+};
 //--------------------------------------------------------------------
 
 module.exports = {
    login
-}
+};

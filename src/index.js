@@ -62,9 +62,7 @@ app.use('/api/cart', cartRoutes);       // Cart Routes
 //--------------------------------------------------------------------------------------
 const server = http.createServer(app);
 server.listen(PORT, () => {
-   // Database connection
-   connect();
-   // Logging server info
-   logServer();
+   connect();   // Database connection
+   logServer(); // Log Startup Screen
 });
 //--------------------------------------------------------------------------------------

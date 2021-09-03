@@ -12,7 +12,7 @@ const getProducts = async (req, res) => {
    catch (e) {
       res.status(500).json(e);
    }
-}
+};
 
 // Fetching a single `Product` from the database.
 // Based on `_id` field.
@@ -25,7 +25,7 @@ const getProduct = async (req, res) => {
    catch (e) {
       res.status(500).json(e);
    }
-}
+};
 
 // Adding a new `Product` in the database.
 const addProduct = async (req, res) => {
@@ -41,7 +41,7 @@ const addProduct = async (req, res) => {
          message  : e.message
       });
    }
-}
+};
 
 // Deleting a single `Product` from the database.
 // Based on `_id` field.
@@ -58,7 +58,7 @@ const deleteProduct = async (req, res) => {
          message  : e.message
       });
    }
-}
+};
 
 // Updating a single `Product` from the database.
 const updateProduct = async (req, res) => {
@@ -78,7 +78,7 @@ const updateProduct = async (req, res) => {
          message  : e.message
       });
    }
-}
+};
 //-----------------------------------------------------------------------------
 
 module.exports = {
@@ -87,4 +87,4 @@ module.exports = {
    addProduct,
    updateProduct,
    deleteProduct
-}
+};

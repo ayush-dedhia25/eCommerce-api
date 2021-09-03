@@ -13,19 +13,17 @@ const Config = {
       USERNAME : process.env.DB_USER     || '',
       PASSWORD : process.env.DB_PASSWORD || ''
    },
-   
    server: {
       PORT : process.env.SERVER_PORT || 8080,
       HOST : process.env.SERVER_HOST || '127.0.0.1'
    },
-   
    jwt: {
       EXPIRES_IN    : process.env.JWT_EXPIRY_TIME   || 300,
       SECRET        : process.env.JWT_SECRET        || 'strongSecretHere123',
       ISSUER        : process.env.JWT_ISSUER        || 'ayushproductions.com',
       REFRESH_TOKEN : process.env.JWT_REFRESH_TOKEN || 'reallyStrongRefesh123'
    }
-}
+};
 //------------------------------------------------------------------------------------
 
 //------------------------------------------------------------------------------------
@@ -65,4 +63,4 @@ module.exports = {
    Config,
    logServer,
    Log: Logger
-}
+};

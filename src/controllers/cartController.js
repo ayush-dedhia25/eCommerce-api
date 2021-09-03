@@ -10,14 +10,12 @@ const AvailableTypes = require('../Types');
 const addProductToCart = async (req, res) => {
    const prodname = req.params.name;
    const { email, password } = req.user;
-   
    try {
       const product = await Product.findOne({ name: prodname });
       // Adding Product to Cart
       if (!product) {
          return res.status(404).send('Product not found!');
       }
-      
       const user = await User.findOneAndUpdate(
          { email, password },
          {
@@ -25,7 +23,6 @@ const addProductToCart = async (req, res) => {
          },
          { new: true }
       );
-      
       res.status(200).json({
          success: true,
          message: 'Product added to cart!',
@@ -39,7 +36,7 @@ const addProductToCart = async (req, res) => {
          message: 'Product not found!'
       });
    }
-}
+};
 
 // Remove item from cart functionality.
 const removeProductFromCart = async (req, res) => {
@@ -64,10 +61,10 @@ const removeProductFromCart = async (req, res) => {
          message: 'Product not found!'
       });
    }
-}
+};
 //--------------------------------------------------------------
 
 module.exports = {
    addProductToCart,
    removeProductFromCart
-}
+};

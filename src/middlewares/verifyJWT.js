@@ -1,4 +1,4 @@
-const jwt = require('jsonwebtoken');
+const JWT = require('jsonwebtoken');
 const { Config } = require('../config');
 
 //--------------------------------------------------------------
@@ -7,15 +7,13 @@ const { Config } = require('../config');
 function verifyJWT(req, res, next) {
    const authHeaders = req.headers.authorization;
    const token = authHeaders && authHeaders.split(' ')[1];
-   
    if (token == null) {
       return res.status(401).json({
          success: false,
          message: 'Authorization failed! Try again'
       });
    }
-
-   jwt.verify(token, Config.jwt.SECRET, (err, user) => {
+   JWT.verify(token, Config.jwt.SECRET, (err, user) => {
       if (err) {
          return res.status(401).json({
             success: false,

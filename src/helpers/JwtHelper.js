@@ -1,4 +1,4 @@
-const jwt = require('jsonwebtoken');
+const JWT = require('jsonwebtoken');
 const { Config, Log } = require('../config');
 
 //---------------------------------------------------------------------
@@ -12,7 +12,7 @@ const signRefreshToken = (userId) => new Promise((resolve, reject) => {
       audience  : userId
    };
    // Signing the jwt token.
-   jwt.sign({}, secret, claims, (err, refreshToken) => {
+   JWT.sign({}, secret, claims, (err, refreshToken) => {
       if (err) {
          Log.error('JwtHelper', err);
          reject(err);

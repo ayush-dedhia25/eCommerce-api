@@ -12,7 +12,7 @@ const getUsers = async (req, res) => {
    catch (e) {
       res.status(500).json(e);
    }
-}
+};
 
 // Fetch a single user by its id.
 const getUser = async (req, res) => {
@@ -24,7 +24,7 @@ const getUser = async (req, res) => {
    catch (e) {
       res.status(500).json(e);
    }
-}
+};
 
 // Create a new user.
 const createUser = async (req, res) => {
@@ -40,7 +40,7 @@ const createUser = async (req, res) => {
          message: e.message
       });
    }
-}
+};
 
 // Delete a user!
 const deleteUser = async (req, res) => {
@@ -55,7 +55,7 @@ const deleteUser = async (req, res) => {
    catch (e) {
       res.status(500).json(e);
    }
-}
+};
 
 // Update a user.
 const updateUser = async (req, res) => {
@@ -71,7 +71,7 @@ const updateUser = async (req, res) => {
    catch (e) {
       res.status(500).json(e);
    }
-}
+};
 //---------------------------------------------------
 
 module.exports = {
@@ -80,4 +80,4 @@ module.exports = {
    createUser,
    updateUser,
    deleteUser
-}
+};

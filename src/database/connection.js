@@ -19,7 +19,6 @@ async function connect() {
       useFindAndModify: false,
       useCreateIndex: true
    };
-
    try {
       await mongoose.connect(URI, options);
       Log.log('DATABASE', 'Database Connection Active 🌟');
